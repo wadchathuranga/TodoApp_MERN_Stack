@@ -1,0 +1,151 @@
+swagger: "2.0"
+info:
+  title: Todo App API
+  description: This is swagger documentation of my todo app
+  version: "1.0.0"
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: todoapp@mearnstack.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+schemes:
+  - http
+  - https
+tags:
+  - name: Todo API
+    description: Everything about todo app
+    externalDocs:
+      description: Find out more (swagger documentation)
+      url: http://swagger.io
+
+paths:
+  # Get all todos
+  /api/todos:
+    get:
+      tags:
+        - Todo API
+      summary: Return a string
+      description: It is just returning a fake string.
+      responses:
+        200:
+          description: Success
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                text:
+                  type: string
+        404:
+          description: Not Found
+        500:
+          description: Internal server Error
+
+    # Create todo
+    post:
+      tags:
+        - Todo API
+      summary: Create todo
+      description: This is api to create a todo
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              text:
+                type: string
+      responses:
+        201:
+          description: Created
+        404:
+          description: Bad Request
+        500:
+          description: Internal Server Error
+
+  /api/todos/{todoID}:
+    # Update todo
+    put:
+      tags:
+        - Todo API
+      summary: Update an existing pet
+      description: ""
+      operationId: updatePet
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: todoID
+          in: path
+          description: TodoID that need to be update
+          required: true
+          type: string
+        - name: body
+          in: body
+          description: Updated todo object
+          required: true
+          schema:
+            type: object
+            properties:
+              text:
+                type: string
+      responses:
+        200:
+          description: Success
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                text:
+                  type: string
+        404:
+          description: Todo Not Found
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        500:
+          description: Internal server Error
+
+    # Delete todo
+    delete:
+      tags:
+        - Todo API
+      summary: Delete user
+      description: This can only be done by the logged in user.
+      operationId: deleteUser
+      produces:
+        - application/json
+      parameters:
+        - name: todoID
+          in: path
+          description: The todo id that needs to deleted
+          required: true
+          type: string
+      responses:
+        200:
+          description: Success
+        400:
+          description: Bad Request
+        404:
+          description: Todo Not Found
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        500:
+          description: Internal server Error
