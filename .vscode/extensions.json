@@ -1,9 +1,0 @@
-{
-    "recommendations": [
-        "esbenp.prettier-vscode",
-        "pkief.material-icon-theme",
-        "zignd.html-css-class-completion",
-        "dsznajder.es7-react-js-snippets",
-        "formulahendry.auto-rename-tag"
-    ]
-}
