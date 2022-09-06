@@ -2,5 +2,9 @@
 
 ## Both frontend and backend are available.
 
-#### Backend Technologies: NodeJS | Express | MongoDB
-#### Frontend Technologies: ReactJS | HTML | CSS
+### Swagger API documentation included
+
+#### Backend : NodeJS | Express | MongoDB
+#### Frontend : ReactJS | HTML | CSS
+
+
